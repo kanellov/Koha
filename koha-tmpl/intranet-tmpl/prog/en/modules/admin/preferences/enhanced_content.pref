@@ -46,6 +46,25 @@ Enhanced Content:
                   yes: Show
                   no: "Don't show"
             - cover images from Amazon on search results and item detail pages on the OPAC.
+        -
+            - pref: OPACAmazonCustomerReviews
+              default: 0
+              choices:
+                  yes: Show
+                  no: "Don't show"
+            - customer reviews from Amazon on item detail pages on the OPAC. 
+            - <br /><strong>NOTE:</strong>You must fill <strong>AWSAccessKeyId</strong>, <strong>AWSSecretKey</strong> fields.
+        - 
+            - Set the height of the reviews iframe to 
+            - pref: OPACAmazonCustomerReviewsIFrameHeight
+              default: 200
+            - px.      
+        -
+            - pref: AWSAccessKeyId
+            - Amazon Web Services access key ID.
+        -
+            - pref: AWSSecretKey
+            - Amazon Web Services secret key.
     Babelthèque:
         -
             - pref: Babeltheque

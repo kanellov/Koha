@@ -597,6 +597,10 @@
                             <li id="tab_comments"><a href="#comments">Comments ( [% reviews.size || 0 %] )</a></li>
                         [% END %]
 
+                        [% IF Koha.Preference( 'OPACAmazonCustomerReviews' ) == 1 %]
+                            <li id="tab_amazon_reviews"><a href="#amazon_reviews">Amazon Reviews</a></li>
+                        [% END %]
+
                         [% IF ( NovelistSelectProfile ) %]
                             [% IF ( NovelistSelectView == 'tab') %]
                                 <li id="tab_NovelistSelect"> <a href="#NovelistSelect">Novelist Select</a></li>
@@ -955,6 +959,16 @@
                                 [% END # / IF loggedinusername %]
                             </div> <!-- / #comments -->
                         [% END # / IF reviewson %]
+
+                        [% IF Koha.Preference( 'OPACAmazonCustomerReviews' ) == 1 %]
+                            <div id="amazon_reviews">
+                                [% IF ( amazon_reviews_iframe_url ) %]
+                                <iframe src="[% amazon_reviews_iframe_url %]" style="width:100%;height:[% Koha.Preference( 'OPACAmazonCustomerReviewsIFrameHeight' ) %]px;border:none;" width="100%" frameborder="0"></iframe>
+                                [% ELSE %]
+                                <p>There are no reviews for this item.</p>
+                                [% END %]
+                            </div>
+                        [% END %]
 
                         [% IF ( OPACFRBRizeEditions && XISBNS ) %]
                             <div id="editions">
